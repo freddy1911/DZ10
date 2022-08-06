@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """ Главная страница """
     str = '<pre>'
     for i in data:
         str += f'{i} \n \n'
@@ -17,6 +18,7 @@ def index():
 
 @app.route('/candidates/<int:pk>')
 def get_user(pk):
+    """ Поиск кандидата по pk"""
     user = get_by_pk(pk, data)
     if user:
         str = f'<img src="{user.picture}">'
@@ -28,6 +30,7 @@ def get_user(pk):
 
 @app.route('/skills/<x>')
 def get_users(x):
+    """ Поиск скиллов """
     x = x.lower()
     users = get_by_skill(x, data)
     if users:

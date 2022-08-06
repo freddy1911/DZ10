@@ -6,6 +6,7 @@ data = get_all(load_candidates(name_file))
 
 app = Flask(__name__)
 
+""" Главная страница """
 
 @app.route('/')
 def index():
@@ -14,7 +15,8 @@ def index():
         str += f'{i} \n \n'
     str += '</pre>'
 
-
+""" Поиск кандидата по pk"""
+    
 @app.route('/candidates/<int:pk>')
 def get_user(pk):
     user = get_by_pk(pk, data)
@@ -25,6 +27,7 @@ def get_user(pk):
         str = 'NOT FOUND'
     return str
 
+""" Поиск по навыкам """
 
 @app.route('/skills/<x>')
 def get_users(x):

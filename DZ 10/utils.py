@@ -2,13 +2,13 @@ import json
 
 from candidate import Candidate
 
-
+# Загружаем кандидатов
 def load_candidates(filename):
     with open(filename, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data
 
-
+# Получение данных о кандидатах
 def get_all(data):
     arr = []
     for item in data:
@@ -16,13 +16,13 @@ def get_all(data):
         arr.append(candidate)
     return arr
 
-
+# Получаем кандидата по номеру
 def get_by_pk(pk, data):
     for item in data:
         if item == pk:
             return pk
 
-
+# Получаем кандидата по скиллу
 def get_by_skill(skill_name, data):
     arr = []
     for item in data:
